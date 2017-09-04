@@ -1,0 +1,36 @@
+body {
+	background-color: white;
+}
+.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important; }
+.navbar {min-height:30px !important; margin-bottom: 0px !important;}
+#graph {
+	position: absolute;
+	/*top: 50px;*/
+	height: 100%;
+	width: 80%;
+	display: none;
+	overflow: hidden;
+
+}
+#controlPanel{
+	position:absolute;
+	width:15%;
+	left:85%;
+	font-family: Microsoft Yahei;
+	border:2px solid #ccc;
+	transition:display 0.2s ease 0.2s;
+	display: none;
+	overflow: hidden;
+}
+
+#load {
+	
+	position: absolute;
+	top: 0%;
+
+	background-color: #ccc;
+	/*top: 50px;*/
+	height: 100%;
+	/*display: none;*/
+	width: 100%;
+}

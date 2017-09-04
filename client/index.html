@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Photo4Action</title>
+    <link rel='stylesheet' href='css/bootstrap.css' />
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel='stylesheet' href='css/main.css' />
+    <link rel='stylesheet' href='css/loadeffect.css' />
+    <link rel='stylesheet' href='css/font-awesome.css' />
+    <link rel='stylesheet' href='css/jquery-ui-1.10.4.custom.min.css' />
+    <link rel='stylesheet' href='css/jquery-ui.css' />
+    <script src='lib/jquery.min.js'></script>
+    <script src='lib/d3v4.js'></script>
+    <script src='lib/saveSvgAsPng.js'></script>
+    <script src='lib/jquery-ui-1.10.4.custom.min.js'></script>
+    <script src='lib/bootstrap.min.js'></script>
+    <script src='lib/svg-pan-zoom.min.js'></script>
+</head>
+
+<body>
+    <!-- <nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Graph Interaction Demo</a>
+	    </div>
+	    <p class="navbar-text navbar-right">Peking University</p>
+	  </div>
+	</nav> -->
+    <div id='load'>
+        <div class="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id='controlPanel'>
+        <div class='title' id='controlPanelTitle'>
+            <span>Control Panel</span>
+        </div>
+        <div id='dataset' class='control' style='padding-top:15px; padding-bottom:0px'>
+            <div class='h1-div'>Loading Data</div>
+            <div id='loadingDataButton'>
+                <table width='100%' style='margin-bottom:4px'>
+                    <tr>
+                        <td width='40%'>
+                            <a id='a_file_upload'>Select File
+	                 <input type = 'file' name = 'file' id = "file_upload" title = 'The file format should be json.'>
+	            </a>
+                        </td>
+                        <td width='55%'>
+                            <div id='fileName'>.json</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Tip: the file format should be json.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id='setParameter' class='control' style='padding-top:12px'>
+            <div class='h1-div'>Setting Parameter</div>
+            <div id='parameterTable'>
+                <table width='100%'>
+                    <!-- setting distance div -->
+                    <tr id='settingDistance'>
+                        <td width='40%'>Link Distance</td>
+                        <td colspan='2'>
+                            <div class='valueShow' id='distanceValue'>1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style='padding-right: 10px'>
+                            <div style="margin-top:6px; margin-bottom: 3px" id="distanceBar"></div>
+                        </td>
+                    </tr>
+                    <!-- setting strength div -->
+                    <tr id='settingStrength'>
+                        <td width='40%'>Link Strength</td>
+                        <td colspan='2'>
+                            <div class='valueShow' id='linkStrengthValue'>1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style='padding-right: 10px'>
+                            <div style="margin-top:6px; margin-bottom: 3px" id="linkStrengthBar"></div>
+                        </td>
+                    </tr>
+                    <!-- setting charge div -->
+                    <tr id='settingCharge'>
+                        <td width='40%'>Node Strength</td>
+                        <td colspan='2'>
+                            <!-- <input type = "text" name = "settingDistance" id = "chargeValue" style = "width:45%; text-align:center" value = "1" /> -->
+                            <div class='valueShow' id='nodeStrengthValue'>1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style='padding-right: 10px'>
+                            <div style="margin-top:6px; margin-bottom: 3px" id="nodeStrengthBar"></div>
+                        </td>
+                    </tr>
+                    <tr id='settingCharge'>
+                        <td width='40%'>Collide Strength</td>
+                        <td colspan='2'>
+                            <!-- <input type = "text" name = "settingDistance" id = "chargeValue" style = "width:45%; text-align:center" value = "1" /> -->
+                            <div class='valueShow' id='collideStrengthValue'>1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style='padding-right: 10px'>
+                            <div style="margin-top:6px; margin-bottom: 3px" id="collideStrengthBar"></div>
+                        </td>
+                    </tr>
+                    <tr id='settingNodeSize'>
+                        <td width='40%'>Node Size</td>
+                        <td colspan='2'>
+                            <!-- <input type = "text" name = "settingDistance" id = "chargeValue" style = "width:45%; text-align:center" value = "1" /> -->
+                            <div class='valueShow' id='nodeSizeValue'>1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style='padding-right: 10px'>
+                            <div style="margin-top:6px; margin-bottom: 3px" id="nodeSizeBar"></div>
+                        </td>
+                    </tr>
+                    <tr id='settingLinksWidth'>
+                        <td width='40%'>Link Width</td>
+                        <td colspan='2'>
+                            <!-- <input type = "text" name = "settingDistance" id = "chargeValue" style = "width:45%; text-align:center" value = "1" /> -->
+                            <div class='valueShow' id='linkWidthValue'>1</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style='padding-right: 10px'>
+                            <div style="margin-top:6px; margin-bottom: 3px" id="linkWidthBar"></div>
+                        </td>
+                    </tr>
+                    <tr id='textShow'>
+                        <td width='40%'>Text Label</td>
+                        <td colspan="3" style='padding-right: 10px'>
+                            <input type="checkbox" id='showText' onclick="showText()" checked="true">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div id="graph">
+    </div>
+    <script type="text/javascript" src="lib/msgpack.min.js"></script>
+    <script type="text/javascript" src="lib/underscore.js"></script>
+    <script type="text/javascript" src="lib/d3-ForceEdgeBundling.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/p4a2/messageHandler.js"></script>
+    <script type="text/javascript" src="js/p4a2/expandNode.js"></script>
+    <script type="text/javascript" src="js/p4a2/forceLayout2.js"></script>
+    <!-- <script type="text/javascript" src="js/p4a2/forcelayout.js"></script> -->
+    <script type="text/javascript" src="js/init.js"></script>
+    <script type="text/javascript">
+    function showText() {
+        if (document.getElementById("showText").checked) {
+        	console.log('ddfdf')
+            d3.selectAll('.text')
+                .attr('display', function(d) {
+                    if (d.type === 'root' || d.expand) return 'block';
+                    else return 'none';
+                })
+        }
+        else {
+        	d3.selectAll('.text')
+        		.attr('display', 'none');
+        }
+    }
+    </script>
+</body>

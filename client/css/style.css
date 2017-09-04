@@ -1,0 +1,173 @@
+
+
+
+
+.link{
+  stroke: #999;
+  stroke-opacity: 0.6;
+}
+
+
+.menu-show{
+	left:7%;
+}
+
+.menu-unshow{
+	left:20%;
+}
+
+
+
+#controlPanel .title{
+	position: relative;
+	background-color: #DFDFDF;
+	opacity:0.9;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	border-bottom: 2px solid #ccc;
+	font-size:20px;
+	font-family: Microsoft Yahei;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+#a_file_upload{
+	position:relative;
+	display:inline-block;
+	border:2px solid grey;
+	border-radius:8px;
+    padding:2px 12px;
+    overflow:hidden;
+    text-decoration: none;
+    text-indent:0;
+    color:black;
+}
+
+#a_file_upload input{
+	position:absolute;
+	font-size:100px;
+	right:0;
+	top:0;
+	opacity:0;
+}
+
+#a_file_upload:hover{
+	border-color: #FADC8E;
+	background-color:#FFF5D3;
+	text-decoration: none;
+}
+
+.control{
+	position:relative;
+	width:100%;
+	padding-top: 10px;
+	padding-left:10px;
+	padding-bottom:10px;
+ }
+
+ .h1-div{
+ 	font-size:18px;
+ 	font-weight: 600;
+ }
+
+input{
+ 	border-radius:8px;
+ }
+
+ #loadingDataButton {
+ 	position:relative;
+ 	padding-top:3px;
+ }
+
+ #parameterTable{
+ 	position:relative;
+ 	padding-top:3px;
+ }
+
+ #iconTable{
+ 	position:relative;
+ 	padding-top: 3px;
+ }
+
+ #iconTable a{
+ 	border:2px solid grey;
+ 	padding:4px 8px;
+ }
+
+ table .valueShow{
+ 	border:2px solid grey;
+ 	border-radius:8px;
+ 	text-align: center;
+ 	width:45%;
+ 	padding:2px 0px;
+ }
+
+#a_picture_save{
+	position:absolute;
+	left:70%;
+	color:black;
+}
+
+#picture_save{
+	padding-top:2px;
+	padding-bottom: 2px;
+}
+
+.graphSVG .selected{
+	opacity:1;
+}
+
+.graphSVG .unselected{
+	opacity:0.2;
+}
+
+.graphSVG .clickSelected{
+	opacity:1;
+}
+
+.graphSVG .clickUnselected{
+	opacity:0.2;
+}
+
+/*menu design*/
+#menu.selected{
+	color:#FADC8E;
+}
+
+/*icon selected*/
+#label_show:hover{
+    background-color:#FFF5D3;
+    border-color:#FADC8E;
+}
+
+#node_fixed:hover{
+	background-color:#FFF5D3;
+	border-color:#FADC8E;
+}
+
+#color_show:hover{
+	background-color:#FFF5D3;
+	border-color:#FADC8E;
+}
+
+#picture_save:hover{
+	background-color:#FFF5D3;
+	border-color:#FADC8E;
+}
+
+.circleHover{
+	 opacity:0.8;
+    -webkit-animation-name:'wobble';/*动画属性名，也就是我们前面keyframes定义的动画名*/
+     -webkit-animation-duration: 1s;/*动画持续时间*/
+     -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+     /*-webkit-animation-delay: 2s;/*动画延迟时间*/
+     -webkit-animation-iteration-count: infinite;/*定义循环资料，infinite为无限次*/
+     -webkit-animation-direction: alternate;/*定义动画方式*/
+}
+
+  @-webkit-keyframes 'wobble'{
+	0% {}
+	50%{fill:rgb(247, 48, 48);}
+	100% {}
+}
